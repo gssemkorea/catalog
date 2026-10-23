@@ -1,95 +1,109 @@
 {
  "banners": {
   "band_anchor": {
-   "h": 206,
-   "lg": "img/banners/band_anchor-lg.da498502.webp",
-   "lgw": 550,
-   "license": "unverified",
-   "md": "img/banners/band_anchor-md.da498502.webp",
-   "mdw": 550,
-   "src": "image_assets/images (3).jpg",
-   "w": 550
-  },
-  "band_instruments": {
-   "h": 277,
-   "lg": "img/banners/band_instruments-lg.e81040ae.webp",
-   "lgw": 740,
-   "license": "unverified",
-   "md": "img/banners/band_instruments-md.e81040ae.webp",
-   "mdw": 740,
-   "src": "image_assets/images (4).jpg",
-   "w": 740
-  },
-  "band_maxi": {
-   "h": 270,
-   "lg": "img/banners/band_maxi-lg.43635369.webp",
-   "lgw": 720,
-   "license": "unverified",
-   "md": "img/banners/band_maxi-md.43635369.webp",
-   "mdw": 720,
-   "src": "image_assets/images.jpg",
-   "w": 720
-  },
-  "band_micro": {
-   "h": 719,
-   "lg": "img/banners/band_micro-lg.ec3f5708.webp",
-   "lgw": 1600,
-   "license": "unverified",
-   "md": "img/banners/band_micro-md.39eeb76e.webp",
-   "mdw": 800,
-   "src": "image_assets/WebsiteWebP_XL-FSURG_Main Visual_Cyan_Website.webp",
-   "w": 1920
-  },
-  "band_mid": {
-   "h": 449,
-   "lg": "img/banners/band_mid-lg.0a4f3753.webp",
-   "lgw": 1200,
-   "license": "unverified",
-   "md": "img/banners/band_mid-md.ce0873c9.webp",
-   "mdw": 800,
-   "src": "image_assets/mmc_april_blog2-2.jpg",
-   "w": 1200
-  },
-  "band_mini": {
-   "h": 449,
-   "lg": "img/banners/band_mini-lg.dded0980.webp",
-   "lgw": 1200,
-   "license": "unverified",
-   "md": "img/banners/band_mini-md.491ab4b2.webp",
-   "mdw": 800,
-   "src": "image_assets/Eizo-curator-luxembourg-monitors-or.webp",
-   "w": 1200
-  },
-  "hero": {
-   "h": 1024,
-   "lg": "img/banners/hero-lg.fb63432a.webp",
+   "h": 2625,
+   "lg": "img/banners/band_anchor-lg.770ad50c.webp",
    "lgw": 2000,
    "license": "unverified",
-   "md": "img/banners/hero-md.a4ae9ef0.webp",
-   "mdw": 1200,
-   "src": "image_assets/_98501912_gettyimages-593305618.jpg",
-   "w": 2048
+   "md": "img/banners/band_anchor-md.8e327e7f.webp",
+   "mdw": 1000,
+   "src": "image_assets/add_images/68073122a884f2c25990f155_EOF04092.webp",
+   "w": 7008,
+   "xl": "img/banners/band_anchor-xl.a1189a1d.webp",
+   "xlw": 3840
+  },
+  "band_instruments": {
+   "h": 3254,
+   "lg": "img/banners/band_instruments-lg.0f0ecf9c.webp",
+   "lgw": 2000,
+   "license": "unverified",
+   "md": "img/banners/band_instruments-md.8acb807f.webp",
+   "mdw": 1000,
+   "src": "image_assets/add_images/AdobeStock_240128951.webp",
+   "w": 8688,
+   "xl": "img/banners/band_instruments-xl.8b4573d2.webp",
+   "xlw": 3840
+  },
+  "band_maxi": {
+   "h": 1311,
+   "lg": "img/banners/band_maxi-lg.751cb4ca.webp",
+   "lgw": 2000,
+   "license": "unverified",
+   "md": "img/banners/band_maxi-md.7050824d.webp",
+   "mdw": 1000,
+   "src": "image_assets/add_images/colorectal-surgery-division.jpg",
+   "w": 3500,
+   "xl": "img/banners/band_maxi-xl.0c2d9857.webp",
+   "xlw": 3500
+  },
+  "band_micro": {
+   "h": 2625,
+   "lg": "img/banners/band_micro-lg.10946344.webp",
+   "lgw": 2000,
+   "license": "unverified",
+   "md": "img/banners/band_micro-md.d46a7539.webp",
+   "mdw": 1000,
+   "src": "image_assets/add_images/68073122a884f2c25990f155_EOF04092.webp",
+   "w": 7008,
+   "xl": "img/banners/band_micro-xl.78ada6c0.webp",
+   "xlw": 3840
+  },
+  "band_mid": {
+   "h": 2247,
+   "lg": "img/banners/band_mid-lg.b738b2e8.webp",
+   "lgw": 2000,
+   "license": "unverified",
+   "md": "img/banners/band_mid-md.db58251b.webp",
+   "mdw": 1000,
+   "src": "image_assets/add_images/surgical-robot-royalty-free-image-1567788183.jpg",
+   "w": 6000,
+   "xl": "img/banners/band_mid-xl.9f3145ac.webp",
+   "xlw": 3840
+  },
+  "band_mini": {
+   "h": 959,
+   "lg": "img/banners/band_mini-lg.5cdcbcd7.webp",
+   "lgw": 2000,
+   "license": "unverified",
+   "md": "img/banners/band_mini-md.92490c64.webp",
+   "mdw": 1000,
+   "src": "image_assets/add_images/surgeons-operating-scaled.jpg",
+   "w": 2560,
+   "xl": "img/banners/band_mini-xl.accf80b9.webp",
+   "xlw": 2560
+  },
+  "hero": {
+   "h": 4344,
+   "lg": "img/banners/hero-lg.566f9395.webp",
+   "lgw": 2560,
+   "license": "unverified",
+   "md": "img/banners/hero-md.95655478.webp",
+   "mdw": 1280,
+   "src": "image_assets/add_images/AdobeStock_240128951.webp",
+   "w": 8688,
+   "xl": "img/banners/hero-xl.f83a196f.webp",
+   "xlw": 3840
   }
  },
- "built": "2026-10-23T14:19:01",
+ "built": "2026-10-23T16:57:42",
  "counts": {
   "banners": 7,
   "images": 6,
-  "products": 176
+  "products": 177
  },
  "images": {
   "logo": {
-   "h": 176,
-   "p": "img/logo/gssem-white.16f49f40.png",
-   "w": 1200
+   "h": 611,
+   "p": "img/logo/gssem-white.d52903cf.png",
+   "w": 1190
   },
   "spread_case": {
    "h": 626,
    "lg": "img/misc/spread_case-lg.e40c8b4a.webp",
    "lgw": 1000,
    "license": "unknown",
-   "md": "img/misc/spread_case-md.6e04be3f.webp",
-   "mdw": 600,
+   "md": "img/misc/spread_case-md.cd887be2.webp",
+   "mdw": 700,
    "src": "legacy",
    "w": 1000
   },
@@ -98,28 +112,28 @@
    "lg": "img/misc/spread_cover-lg.0b1ae130.webp",
    "lgw": 1000,
    "license": "unknown",
-   "md": "img/misc/spread_cover-md.fba02466.webp",
-   "mdw": 600,
+   "md": "img/misc/spread_cover-md.fef30793.webp",
+   "mdw": 700,
    "src": "legacy",
    "w": 1000
   },
   "spread_port": {
-   "h": 678,
-   "lg": "img/misc/spread_port-lg.d577d312.webp",
-   "lgw": 452,
+   "h": 1707,
+   "lg": "img/misc/spread_port-lg.715895ef.webp",
+   "lgw": 1280,
    "license": "unverified",
-   "md": "img/misc/spread_port-md.d577d312.webp",
-   "mdw": 452,
-   "src": "image_assets/images (1).jpg",
-   "w": 452
+   "md": "img/misc/spread_port-md.7540df1d.webp",
+   "mdw": 700,
+   "src": "image_assets/add_images/surgeons-operating-scaled.jpg",
+   "w": 1280
   },
   "spread_set": {
    "h": 651,
    "lg": "img/misc/spread_set-lg.79279c1f.webp",
    "lgw": 1000,
    "license": "unknown",
-   "md": "img/misc/spread_set-md.6c5c95ea.webp",
-   "mdw": 600,
+   "md": "img/misc/spread_set-md.5ebefc0d.webp",
+   "mdw": 700,
    "src": "legacy",
    "w": 1000
   },
@@ -128,8 +142,8 @@
    "lg": "img/misc/spread_skull-lg.237aec3c.webp",
    "lgw": 915,
    "license": "unknown",
-   "md": "img/misc/spread_skull-md.b30e1037.webp",
-   "mdw": 600,
+   "md": "img/misc/spread_skull-md.890bb6bf.webp",
+   "mdw": 700,
    "src": "legacy",
    "w": 915
   }
@@ -2097,6 +2111,19 @@
    "mw": 800,
    "origin": "company_db",
    "t": "img/products/222-3013-400.7d3c7bec.webp",
+   "tw": 400,
+   "w": 1254
+  },
+  "222-3016": {
+   "alpha": true,
+   "alt": "222-3016",
+   "f": "img/products/222-3016-full.6e21ce05.webp",
+   "fw": 1254,
+   "h": 1254,
+   "m": "img/products/222-3016-800.93107446.webp",
+   "mw": 800,
+   "origin": "company_db",
+   "t": "img/products/222-3016-400.7a052caa.webp",
    "tw": 400,
    "w": 1254
   },

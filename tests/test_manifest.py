@@ -24,7 +24,7 @@ def test_every_variant_file_exists(manifest):
 def test_banners_and_images_present(manifest):
     for name in ["hero"] + [f"band_{f}" for f in config.BAND_FAMILIES]:
         e = manifest["banners"][name]
-        for v in ("lg", "md"):
+        for v in ("xl", "lg", "md"):
             assert (config.STATIC / e[v]).exists(), (name, v)
     for name in [f"spread_{s}" for s in config.SPREADS]:
         e = manifest["images"][name]

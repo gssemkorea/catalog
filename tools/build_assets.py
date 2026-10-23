@@ -123,8 +123,9 @@ class Cache:
         self.touched.add(logical)
         return ent
 
-    def save(self) -> None:
-        self.data = {k: v for k, v in self.data.items() if k in self.touched}
+    def save(self, prune: bool = True) -> None:
+        if prune:  # a full build drops entries no longer produced; partial builds keep them
+            self.data = {k: v for k, v in self.data.items() if k in self.touched}
         self.path.write_text(json.dumps(self.data, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
 
 
@@ -261,12 +262,12 @@ class Builder:
             is_hero = name == "hero"
             is_band = name.startswith("band_")
             is_photo = is_hero or is_band
+            ratio = cfg.get("ratio") or (config.HERO_RATIO if is_hero else config.BANNER_RATIO if is_band else None)
             gray = cfg.get("gray", is_photo or cfg.get("src", "legacy") != "legacy")
             with Image.open(p) as raw:
                 im = ImageOps.exif_transpose(raw)
                 im = im.convert("RGBA") if ("A" in im.getbands() and not is_photo) else im.convert("RGB")
-            if is_photo:
-                ratio = config.HERO_RATIO if is_hero else config.BANNER_RATIO
+            if ratio:
                 im = _crop_ratio(im, ratio, cfg.get("focus", [0.5, 0.5]))
             if gray:
                 im = ImageOps.grayscale(im).convert("RGB") if im.mode == "RGB" else im
@@ -339,7 +340,7 @@ class Builder:
                     f.unlink()
                     self.log("pruned", f.name)
 
-    def write(self) -> None:
+    def write(self, partial: bool = False) -> None:
         self.manifest["built"] = time.strftime("%Y-%m-%dT%H:%M:%S")
         self.manifest["counts"] = {k: len(v) for k, v in self.manifest.items() if isinstance(v, dict)}
         self.manifest["license_unverified"] = len(self.report.license_unverified)
@@ -358,7 +359,7 @@ class Builder:
         total = sum(f.stat().st_size for f in config.OUT.rglob("*") if f.is_file())
         lines += [f"OUTPUT_SIZE {total/1_048_576:.1f} MB"]
         config.REPORT.write_text("\n".join(lines), encoding="utf-8")
-        self.cache.save()
+        self.cache.save(prune=not partial)
 
 
 def main(argv=None) -> int:
@@ -393,7 +394,7 @@ def main(argv=None) -> int:
         b.build_logo()
     if not args.only:
         b.prune()
-    b.write()
+    b.write(partial=bool(args.only))
     print(config.REPORT.read_text(encoding="utf-8"))
     return 1 if b.report.missing else 0
 

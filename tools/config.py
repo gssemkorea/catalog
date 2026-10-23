@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # --- read-only sources -------------------------------------------------------
 PRODUCT_SRC = Path(r"C:\workspace\company_db\Product_img\final_product_img")
-LOGO_SRC = Path(r"C:\workspace\company_db\Product_img\logo\지셈솔루션 로고 NEW 화이트.png")
+LOGO_SRC = Path(r"C:\workspace\company_db\Product_img\logo\GSSEM SOLUTION 로고.png")  # stacked lockup used by the original catalogue
 IMAGE_ASSETS = ROOT / "image_assets"
 
 # --- catalog-owned build inputs ---------------------------------------------
@@ -34,11 +34,11 @@ PRODUCT_WIDTHS = {"t": 400, "m": 800}      # + "f" = min(source, FULL_MAX)
 FULL_MAX = 1254
 PRODUCT_Q = 85
 BANNER_RATIO = 2.67
-BANNER_WIDTHS = {"lg": 1600, "md": 800}
+BANNER_WIDTHS = {"xl": 3840, "lg": 2000, "md": 1000}
 HERO_RATIO = 2.0
-HERO_WIDTHS = {"lg": 2000, "md": 1200}
+HERO_WIDTHS = {"xl": 3840, "lg": 2560, "md": 1280}
 BANNER_Q = 70
-SPREAD_WIDTHS = {"lg": 1200, "md": 600}
+SPREAD_WIDTHS = {"lg": 1400, "md": 700}
 SPREAD_Q = 80
 LOGO_MAX_W = 1200
 WEBP_METHOD = 6

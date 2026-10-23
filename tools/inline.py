@@ -58,6 +58,11 @@ def inline(index: Path, out: Path, width: int, quality: int, theme: str | None) 
     html = re.sub(r'<script src="(static/[^"]+)" defer></script>',
                   lambda m: "<script>\n" + (root / m.group(1)).read_text(encoding="utf-8") + "\n</script>", html)
     html = re.sub(r'<link rel="preload" as="image"[^>]*>\n?', "", html)
+    # banner <style>: drop the @media (md / xl) variants so each photo is embedded once
+    def banners_lg_only(m):
+        body = re.sub(r"@media[^{]*\{(?:[^{}]*\{[^{}]*\})*\s*\}", "", m.group(1))
+        return '<style id="banners">' + body + "</style>"
+    html = re.sub(r'<style id="banners">(.*?)</style>', banners_lg_only, html, flags=re.S)
 
     # product map: one re-encoded data URI per key
     cat_m = re.search(r"<script>window\.CAT=(\{.*?\})</script>", html, re.S)

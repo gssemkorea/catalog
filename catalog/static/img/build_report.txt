@@ -1,13 +1,13 @@
-build_report 2026-10-23T14:19:01
+build_report 2026-10-23T16:57:42
 
 SOURCES
   alias: 2
-  company_db: 157
+  company_db: 158
   legacy: 8
   mirror: 1
   override: 8
 
-BUILT 1  SKIPPED(cache) 552
+BUILT 6  SKIPPED(cache) 557
 
 MISSING (0)
 
@@ -34,7 +34,7 @@ UNUSED_PNG (15)
   K-20261007-831025
   K-20261007-833244
 
-UPSCALE_CAPPED (24)
+UPSCALE_CAPPED (17)
   160-0000:m 800->729
   160-1000:m 800->729
   160-OR-090:m 800->666
@@ -45,32 +45,25 @@ UPSCALE_CAPPED (24)
   dim_gs2:m 800->665
   dim_gs3:m 800->671
   dim_gs4:m 800->644
-  band_mid:lg 1600->1200
-  band_mini:lg 1600->1200
-  band_maxi:lg 1600->720
-  band_maxi:md 800->720
-  band_anchor:lg 1600->550
-  band_anchor:md 800->550
-  band_instruments:lg 1600->740
-  band_instruments:md 800->740
-  spread_port:lg 1200->452
-  spread_port:md 600->452
-  spread_skull:lg 1200->915
-  spread_set:lg 1200->1000
-  spread_case:lg 1200->1000
-  spread_cover:lg 1200->1000
+  band_mini:xl 3840->2560
+  band_maxi:xl 3840->3500
+  spread_port:lg 1400->1280
+  spread_skull:lg 1400->915
+  spread_set:lg 1400->1000
+  spread_case:lg 1400->1000
+  spread_cover:lg 1400->1000
 
 LICENSE_UNVERIFIED (8)
-  hero <- image_assets/_98501912_gettyimages-593305618.jpg
-  band_micro <- image_assets/WebsiteWebP_XL-FSURG_Main Visual_Cyan_Website.webp
-  band_mid <- image_assets/mmc_april_blog2-2.jpg
-  band_mini <- image_assets/Eizo-curator-luxembourg-monitors-or.webp
-  band_maxi <- image_assets/images.jpg
-  band_anchor <- image_assets/images (3).jpg
-  band_instruments <- image_assets/images (4).jpg
-  spread_port <- image_assets/images (1).jpg
+  hero <- image_assets/add_images/AdobeStock_240128951.webp
+  band_micro <- image_assets/add_images/68073122a884f2c25990f155_EOF04092.webp
+  band_mid <- image_assets/add_images/surgical-robot-royalty-free-image-1567788183.jpg
+  band_mini <- image_assets/add_images/surgeons-operating-scaled.jpg
+  band_maxi <- image_assets/add_images/colorectal-surgery-division.jpg
+  band_anchor <- image_assets/add_images/68073122a884f2c25990f155_EOF04092.webp
+  band_instruments <- image_assets/add_images/AdobeStock_240128951.webp
+  spread_port <- image_assets/add_images/surgeons-operating-scaled.jpg
 
 WARNINGS (1)
-  logo: 1.6% of opaque pixels were not white -> flattened to white
+  logo: 100.0% of opaque pixels were not white -> flattened to white
 
-OUTPUT_SIZE 24.0 MB
+OUTPUT_SIZE 25.3 MB

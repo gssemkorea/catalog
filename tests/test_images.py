@@ -23,10 +23,13 @@ def test_product_variants(manifest):
 def test_banner_shape_and_grayscale(manifest):
     for name, e in manifest["banners"].items():
         ratio = config.HERO_RATIO if name == "hero" else config.BANNER_RATIO
-        for v in ("lg", "md"):
+        for v in ("xl", "lg", "md"):
             im = _open(e[v]).convert("RGB")
             assert abs(im.width / im.height - ratio) < 0.02, (name, v, im.size)
-            assert im.width <= (config.HERO_WIDTHS if name == "hero" else config.BANNER_WIDTHS)[v]
+            want = (config.HERO_WIDTHS if name == "hero" else config.BANNER_WIDTHS)[v]
+            assert im.width == min(want, e["w"]), (name, v, im.width, want)
+            if v == "xl":  # 4K target; 2560+ sources are accepted (1.5x upscale behind the veil)
+                assert im.width >= 2560, f"{name}: source too small for 4K ({im.width}px)"
             px = list(im.resize((32, 32)).get_flattened_data())
             assert max(max(abs(r - g), abs(g - b)) for r, g, b in px) <= 4, f"{name} {v} not grayscale"
 

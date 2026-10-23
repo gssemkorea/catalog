@@ -14,20 +14,26 @@ d.dataset.theme=t})()</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
 {% set hero = manifest().banners.get('hero') %}
 {% if hero %}
-<link rel="preload" as="image" href="{{ asset(hero.lg) }}" media="(min-width:761px)">
 <link rel="preload" as="image" href="{{ asset(hero.md) }}" media="(max-width:760px)">
+<link rel="preload" as="image" href="{{ asset(hero.lg) }}" media="(min-width:761px) and (max-width:1920px) and (max-resolution:1.49dppx)">
+<link rel="preload" as="image" href="{{ asset(hero.xl) }}" media="(min-width:1921px), (min-width:761px) and (min-resolution:1.5dppx)">
 {% endif %}
 <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
 {# Banner photos are declared here rather than through CSS custom properties: a url()
    inside a variable resolves against the stylesheet that substitutes it (static/css/),
    which breaks the file:// export. Declared in the document they resolve against the page. #}
-<style>
+<style id="banners">
 {% for name, b in manifest().banners.items() %}
 {{ '.hero' if name == 'hero' else '#' ~ name[5:] ~ ' .band' }}{background-image:url({{ asset(b.lg) }})}
 {% endfor %}
 @media (max-width:760px){
 {% for name, b in manifest().banners.items() %}
 {{ '.hero' if name == 'hero' else '#' ~ name[5:] ~ ' .band' }}{background-image:url({{ asset(b.md) }})}
+{% endfor %}
+}
+@media (min-width:1921px), (min-width:761px) and (min-resolution:1.5dppx){
+{% for name, b in manifest().banners.items() %}
+{{ '.hero' if name == 'hero' else '#' ~ name[5:] ~ ' .band' }}{background-image:url({{ asset(b.xl) }})}
 {% endfor %}
 }
 </style>

@@ -50,7 +50,7 @@ img{max-width:100%}
 .brand .logo{height:30px;width:auto;display:block}
 .brand span{border-left:1px solid var(--line);padding-left:14px;line-height:30px}
 .flogo{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.flogo img{height:clamp(32px,4vw,48px);width:auto;display:block}
+.flogo img{height:clamp(56px,7vw,84px);width:auto;display:block}
 .flogo p{margin:0 0 8px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-2)}
 nav{display:flex;gap:18px;flex-wrap:wrap}
 nav a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2);padding:4px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
@@ -247,5 +247,5 @@ footer .logo,.paper .logo{filter:invert(calc(1 - var(--logo-invert)))}
 .pic:focus-visible,.zoom:focus-visible{outline:1px solid var(--fg);outline-offset:3px}
 .modal img{height:auto}
 main[inert]{pointer-events:none}
-@media (max-width:560px){.tbtn{order:2;padding:6px 9px}.tbtn span{display:none}.brand .logo{height:22px}}
+@media (max-width:560px){.tbtn{order:2;padding:6px 9px}.tbtn span{display:none}}
 

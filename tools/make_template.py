@@ -31,6 +31,17 @@ def rsub(s: str, pat: str, new, n: int, flags=0) -> str:
     return s2
 
 
+# (old, new) pairs applied to the body after the transform. 222-3016 (1.6mm Pilot Drill
+# short) had no photo in the 2025-10 catalogue; the SKU card showed 사진 없음 and the shape
+# view had no card. The photo was added to company_db on 2026-10-23.
+CONTENT_FIXES = [
+    ('<div class="card item" data-d="1.6mm pilot drill short" data-p="222-3016" data-img="" data-title="222-3016" data-sub="1.6mm Pilot Drill short"><div class="pic"><div class="noimg">사진 없음</div></div>',
+     '<div class="card item" data-d="1.6mm pilot drill short" data-p="222-3016" data-img="222-3016" data-title="222-3016" data-sub="1.6mm Pilot Drill short"><button type="button" class="pic" aria-label="222-3016 확대">{{ pic(\'222-3016\', \'\', \'222-3016 1.6mm Pilot Drill short\') }}</button>'),
+    ('<div class="card shape" data-img="222-3026" data-title="222-3026" data-sub="1.6mm Pilot Drill long">',
+     '<div class="card shape" data-img="222-3016" data-title="222-3016" data-sub="1.6mm Pilot Drill short"><button type="button" class="pic" aria-label="222-3016 확대">{{ pic(\'222-3016\', \'\', \'222-3016 1.6mm Pilot Drill short\') }}</button><div class="desc">1.6mm Pilot Drill short</div><div class="vars"><div class="var item" data-d="1.6mm pilot drill short" data-p="222-3016"><span class="vp">222-3016</span></div></div></div><div class="card shape" data-img="222-3026" data-title="222-3026" data-sub="1.6mm Pilot Drill long">'),
+]
+
+
 # --------------------------------------------------------------------------- HTML
 def build_body(html: str) -> str:
     body = html[html.index('<div class="top">'): html.index("</footer>") + len("</footer>")]
@@ -131,6 +142,10 @@ def build_body(html: str) -> str:
     body = rep(body, modal, "")
     body = rep(body, "</main>", "</main>\n" + modal.rstrip("\n"))
 
+    # content fixes applied after the mechanical transform (photos that arrived later)
+    for old, new in CONTENT_FIXES:
+        body = rep(body, old, new)
+
     assert not re.search(DATA, body), "base64 remains in body"
     return body
 
@@ -182,7 +197,6 @@ CSS_REPLACEMENTS = [
     ("::selection{background:#fff;color:#000}", "::selection{background:var(--accent);color:var(--accent-fg)}"),
     ("z-index:20;background:rgba(10,10,10,.82);", "z-index:20;background:var(--top-bg);"),
     (".brand small{display:none}\n", ""),
-    (".flogo img{height:clamp(56px,7vw,84px);", ".flogo img{height:clamp(32px,4vw,48px);"),
     ("background:#000 var(--img) center 35%/cover no-repeat;", "background:var(--photo-bg) center 35%/cover no-repeat;"),
     ("background:linear-gradient(90deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.65) 42%,rgba(0,0,0,.15) 75%),linear-gradient(0deg,#0a0a0a 0%,transparent 40%)}",
      "background:var(--hero-veil)}"),
@@ -229,7 +243,7 @@ footer .logo,.paper .logo{filter:invert(calc(1 - var(--logo-invert)))}
 .pic:focus-visible,.zoom:focus-visible{outline:1px solid var(--fg);outline-offset:3px}
 .modal img{height:auto}
 main[inert]{pointer-events:none}
-@media (max-width:560px){.tbtn{order:2;padding:6px 9px}.tbtn span{display:none}.brand .logo{height:22px}}
+@media (max-width:560px){.tbtn{order:2;padding:6px 9px}.tbtn span{display:none}}
 """
 
 
