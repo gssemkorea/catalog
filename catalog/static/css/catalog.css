@@ -243,7 +243,7 @@ footer .logo,.paper .logo{filter:invert(calc(1 - var(--logo-invert)))}
 .tbtn[aria-pressed=true]{background:var(--fg);color:var(--bg)}
 .tbtn::before{content:"\25D0";font-size:13px;line-height:1;vertical-align:-1px}
 .tbtn span{margin-left:6px}
-.tk.sub{background:transparent;color:var(--fg-3);border:1px dashed var(--fg-3);letter-spacing:.12em}
+.tk.sub{background:transparent;color:var(--fg-3);border:1px dashed var(--fg-3);letter-spacing:.02em;padding:1px 5px}
 .pic,.zoom{font:inherit;color:inherit;appearance:none;-webkit-appearance:none;text-align:inherit}
 .pic:focus-visible,.zoom:focus-visible{outline:1px solid var(--fg);outline-offset:3px}
 .modal img{height:auto}
