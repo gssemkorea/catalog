@@ -1,4 +1,4 @@
-build_report 2026-10-23T16:57:42
+build_report 2026-10-23T17:15:44
 
 SOURCES
   alias: 2
@@ -6,8 +6,9 @@ SOURCES
   legacy: 8
   mirror: 1
   override: 8
+  substitute: 2
 
-BUILT 6  SKIPPED(cache) 557
+BUILT 6  SKIPPED(cache) 563
 
 MISSING (0)
 
@@ -33,6 +34,10 @@ UNUSED_PNG (15)
   K-20261007-830745
   K-20261007-831025
   K-20261007-833244
+
+SUBSTITUTE_PHOTOS (2)
+  160-3003 <- 160-3002
+  160-4050 <- 160-4051
 
 UPSCALE_CAPPED (17)
   160-0000:m 800->729
@@ -66,4 +71,4 @@ LICENSE_UNVERIFIED (8)
 WARNINGS (1)
   logo: 100.0% of opaque pixels were not white -> flattened to white
 
-OUTPUT_SIZE 25.3 MB
+OUTPUT_SIZE 25.6 MB

@@ -85,11 +85,11 @@
    "xlw": 3840
   }
  },
- "built": "2026-10-23T16:57:42",
+ "built": "2026-10-23T17:15:44",
  "counts": {
   "banners": 7,
   "images": 6,
-  "products": 177
+  "products": 179
  },
  "images": {
   "logo": {
@@ -736,6 +736,20 @@
    "tw": 400,
    "w": 1254
   },
+  "160-3003": {
+   "alpha": true,
+   "alt": "160-3003",
+   "f": "img/products/160-3003-full.f4ae08fa.webp",
+   "fw": 1254,
+   "h": 1254,
+   "m": "img/products/160-3003-800.e4f555ca.webp",
+   "mw": 800,
+   "origin": "substitute",
+   "substitute_of": "160-3002",
+   "t": "img/products/160-3003-400.07ebfab1.webp",
+   "tw": 400,
+   "w": 1254
+  },
   "160-3005": {
    "alpha": true,
    "alt": "160-3005",
@@ -811,6 +825,20 @@
    "mw": 800,
    "origin": "company_db",
    "t": "img/products/160-3060-400.de0740ba.webp",
+   "tw": 400,
+   "w": 1254
+  },
+  "160-4050": {
+   "alpha": true,
+   "alt": "160-4050",
+   "f": "img/products/160-4050-full.f44cc5d4.webp",
+   "fw": 1254,
+   "h": 1254,
+   "m": "img/products/160-4050-800.ae9df8f3.webp",
+   "mw": 800,
+   "origin": "substitute",
+   "substitute_of": "160-4051",
+   "t": "img/products/160-4050-400.6ea02689.webp",
    "tw": 400,
    "w": 1254
   },
