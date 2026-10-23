@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+catalog/static/img/.build_cache.json
+company_db/

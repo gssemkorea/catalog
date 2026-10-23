@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{% block title %}Osteo-Fit CMF Catalog{% endblock %}</title>
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" media="(prefers-color-scheme:dark)" content="#0a0a0a">
+<meta name="theme-color" media="(prefers-color-scheme:light)" content="#fafaf8">
+<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('osteofit.theme')}catch(e){}
+if(t!=='light'&&t!=='dark')t=(d.dataset.theme==='light'||d.dataset.theme==='dark')?d.dataset.theme:(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+d.dataset.theme=t})()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+{% set hero = manifest().banners.get('hero') %}
+{% if hero %}
+<link rel="preload" as="image" href="{{ asset(hero.lg) }}" media="(min-width:761px)">
+<link rel="preload" as="image" href="{{ asset(hero.md) }}" media="(max-width:760px)">
+{% endif %}
+<link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
+{# Banner photos are declared here rather than through CSS custom properties: a url()
+   inside a variable resolves against the stylesheet that substitutes it (static/css/),
+   which breaks the file:// export. Declared in the document they resolve against the page. #}
+<style>
+{% for name, b in manifest().banners.items() %}
+{{ '.hero' if name == 'hero' else '#' ~ name[5:] ~ ' .band' }}{background-image:url({{ asset(b.lg) }})}
+{% endfor %}
+@media (max-width:760px){
+{% for name, b in manifest().banners.items() %}
+{{ '.hero' if name == 'hero' else '#' ~ name[5:] ~ ' .band' }}{background-image:url({{ asset(b.md) }})}
+{% endfor %}
+}
+</style>
+</head>
+<body>
+{% block body %}{% endblock %}
+<script>window.CAT={{ cat|tojson }}</script>
+<script src="{{ asset('js/catalog.js') }}" defer></script>
+</body>
+</html>

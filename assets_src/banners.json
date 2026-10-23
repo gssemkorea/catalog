@@ -1,0 +1,15 @@
+{
+  "_comment": "Photographic sources for hero/band/spread. src is relative to the catalog root, or 'legacy' to use the image extracted from the old HTML. focus = [x, y] crop centre fractions. license 'unverified' blocks `release.py --public`.",
+  "hero":             {"src": "image_assets/_98501912_gettyimages-593305618.jpg",                 "focus": [0.5, 0.35], "license": "unverified"},
+  "band_micro":       {"src": "image_assets/WebsiteWebP_XL-FSURG_Main Visual_Cyan_Website.webp", "focus": [0.5, 0.5],  "license": "unverified"},
+  "band_mid":         {"src": "image_assets/mmc_april_blog2-2.jpg",                               "focus": [0.5, 0.5],  "license": "unverified"},
+  "band_mini":        {"src": "image_assets/Eizo-curator-luxembourg-monitors-or.webp",            "focus": [0.5, 0.5],  "license": "unverified"},
+  "band_maxi":        {"src": "image_assets/images.jpg",                                           "focus": [0.5, 0.5],  "license": "unverified"},
+  "band_anchor":      {"src": "image_assets/images (3).jpg",                                       "focus": [0.5, 0.5],  "license": "unverified"},
+  "band_instruments": {"src": "image_assets/images (4).jpg",                                       "focus": [0.5, 0.5],  "license": "unverified"},
+  "spread_port":      {"src": "image_assets/images (1).jpg",                                       "focus": [0.5, 0.5],  "license": "unverified"},
+  "spread_skull":     {"src": "legacy", "license": "unknown"},
+  "spread_set":       {"src": "legacy", "license": "unknown"},
+  "spread_case":      {"src": "legacy", "license": "unknown"},
+  "spread_cover":     {"src": "legacy", "license": "unknown"}
+}

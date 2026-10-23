@@ -1,0 +1,10 @@
+{# pic(key, cls, alt): responsive product image from the manifest, or the "no photo" box. #}
+{% macro pic(key, cls='', alt='') -%}
+{%- set e = manifest().products.get(key) -%}
+{%- if e -%}
+{%- set sizes = {'hero-pic': '(max-width:760px) 60vw, 160px', 'dim': '(max-width:760px) 90vw, 360px'}.get(cls, '(max-width:560px) 40vw, 160px') -%}
+<img class="{{ cls }}" src="{{ asset(e.t) }}" srcset="{{ asset(e.t) }} {{ e.tw }}w{% if e.mw != e.tw %}, {{ asset(e.m) }} {{ e.mw }}w{% endif %}" sizes="{{ sizes }}" width="{{ e.w }}" height="{{ e.h }}" loading="lazy" decoding="async" alt="{{ alt or key }}">
+{%- else -%}
+<div class="noimg">사진 없음</div>
+{%- endif -%}
+{%- endmacro %}

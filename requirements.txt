@@ -1,0 +1,6 @@
+Flask>=3.0
+Pillow>=10
+pytest
+html5lib
+flask-compress
+waitress

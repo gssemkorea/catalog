@@ -1,0 +1,76 @@
+build_report 2026-10-23T14:19:01
+
+SOURCES
+  alias: 2
+  company_db: 157
+  legacy: 8
+  mirror: 1
+  override: 8
+
+BUILT 1  SKIPPED(cache) 552
+
+MISSING (0)
+
+DUPLICATES (4)
+  222-0014: ['Osteo-fit Anchor system\\222-0014.png', 'Osteo-fit Instruments\\222-0014.png']
+  222-0016: ['Osteo-fit Anchor system\\222-0016.png', 'Osteo-fit Instruments\\222-0016.png']
+  222-0100: ['Osteo-fit Anchor system\\222-0100.png', 'Osteo-fit Instruments\\222-0100.png']
+  222-1700: ['Osteo-fit Anchor system\\222-1700.png', 'Osteo-fit Instruments\\222-1700.png']
+
+UNUSED_PNG (15)
+  160-0001
+  160-0612
+  160-1612
+  200-4000_v1
+  200-4100_v1
+  200-GS2-08
+  222-1000
+  222-1612
+  222-2000
+  K-007
+  K-008
+  K-20261007-830165
+  K-20261007-830745
+  K-20261007-831025
+  K-20261007-833244
+
+UPSCALE_CAPPED (24)
+  160-0000:m 800->729
+  160-1000:m 800->729
+  160-OR-090:m 800->666
+  160-OR-100:t 400->260
+  160-OR-100:m 800->260
+  160-OR-145:m 800->426
+  dim_gs1:m 800->656
+  dim_gs2:m 800->665
+  dim_gs3:m 800->671
+  dim_gs4:m 800->644
+  band_mid:lg 1600->1200
+  band_mini:lg 1600->1200
+  band_maxi:lg 1600->720
+  band_maxi:md 800->720
+  band_anchor:lg 1600->550
+  band_anchor:md 800->550
+  band_instruments:lg 1600->740
+  band_instruments:md 800->740
+  spread_port:lg 1200->452
+  spread_port:md 600->452
+  spread_skull:lg 1200->915
+  spread_set:lg 1200->1000
+  spread_case:lg 1200->1000
+  spread_cover:lg 1200->1000
+
+LICENSE_UNVERIFIED (8)
+  hero <- image_assets/_98501912_gettyimages-593305618.jpg
+  band_micro <- image_assets/WebsiteWebP_XL-FSURG_Main Visual_Cyan_Website.webp
+  band_mid <- image_assets/mmc_april_blog2-2.jpg
+  band_mini <- image_assets/Eizo-curator-luxembourg-monitors-or.webp
+  band_maxi <- image_assets/images.jpg
+  band_anchor <- image_assets/images (3).jpg
+  band_instruments <- image_assets/images (4).jpg
+  spread_port <- image_assets/images (1).jpg
+
+WARNINGS (1)
+  logo: 1.6% of opaque pixels were not white -> flattened to white
+
+OUTPUT_SIZE 24.0 MB

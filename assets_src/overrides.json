@@ -1,0 +1,11 @@
+{
+  "_comment": "Explicit key -> source PNG (relative to PRODUCT_SRC). Verified by pixel comparison against the legacy embedded images: *_i keys are the Instruments-folder files, unsuffixed keys are the Anchor-folder files.",
+  "222-0014_i": "Osteo-fit Instruments/222-0014.png",
+  "222-0016_i": "Osteo-fit Instruments/222-0016.png",
+  "222-0100_i": "Osteo-fit Instruments/222-0100.png",
+  "222-1700_i": "Osteo-fit Instruments/222-1700.png",
+  "222-0014": "Osteo-fit Anchor system/222-0014.png",
+  "222-0016": "Osteo-fit Anchor system/222-0016.png",
+  "222-0100": "Osteo-fit Anchor system/222-0100.png",
+  "222-1700": "Osteo-fit Anchor system/222-1700.png"
+}
