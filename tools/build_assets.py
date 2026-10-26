@@ -287,7 +287,8 @@ class Builder:
                 w = min(target, im.width)
                 if target > im.width:
                     self.report.upscale_capped.append(f"{name}:{var} {target}->{im.width}")
-                params = f"w{w} q{q} gray{int(gray)} ratio{entry['w']}x{entry['h']} m{config.WEBP_METHOD}"
+                params = (f"w{w} q{q} gray{int(gray)} ratio{entry['w']}x{entry['h']} "
+                          f"focus{cfg.get('focus', [0.5, 0.5])} m{config.WEBP_METHOD}")
 
                 def make(im=im, w=w, q=q):
                     return (_resize_w(im, w), {"quality": q, "method": config.WEBP_METHOD}, "WEBP")

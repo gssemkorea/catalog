@@ -1,4 +1,4 @@
-build_report 2026-10-23T17:15:44
+build_report 2026-10-23T17:56:27
 
 SOURCES
   alias: 2
@@ -8,7 +8,7 @@ SOURCES
   override: 8
   substitute: 2
 
-BUILT 6  SKIPPED(cache) 563
+BUILT 0  SKIPPED(cache) 569
 
 MISSING (0)
 
@@ -39,7 +39,7 @@ SUBSTITUTE_PHOTOS (2)
   160-3003 <- 160-3002
   160-4050 <- 160-4051
 
-UPSCALE_CAPPED (17)
+UPSCALE_CAPPED (16)
   160-0000:m 800->729
   160-1000:m 800->729
   160-OR-090:m 800->666
@@ -51,7 +51,6 @@ UPSCALE_CAPPED (17)
   dim_gs3:m 800->671
   dim_gs4:m 800->644
   band_mini:xl 3840->2560
-  band_maxi:xl 3840->3500
   spread_port:lg 1400->1280
   spread_skull:lg 1400->915
   spread_set:lg 1400->1000
@@ -63,7 +62,7 @@ LICENSE_UNVERIFIED (8)
   band_micro <- image_assets/add_images/68073122a884f2c25990f155_EOF04092.webp
   band_mid <- image_assets/add_images/surgical-robot-royalty-free-image-1567788183.jpg
   band_mini <- image_assets/add_images/surgeons-operating-scaled.jpg
-  band_maxi <- image_assets/add_images/colorectal-surgery-division.jpg
+  band_maxi <- image_assets/add_images/surgical-robot-royalty-free-image-1567788183.jpg
   band_anchor <- image_assets/add_images/68073122a884f2c25990f155_EOF04092.webp
   band_instruments <- image_assets/add_images/AdobeStock_240128951.webp
   spread_port <- image_assets/add_images/surgeons-operating-scaled.jpg
@@ -71,4 +70,4 @@ LICENSE_UNVERIFIED (8)
 WARNINGS (1)
   logo: 100.0% of opaque pixels were not white -> flattened to white
 
-OUTPUT_SIZE 25.6 MB
+OUTPUT_SIZE 25.4 MB

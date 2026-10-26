@@ -4,14 +4,14 @@
 
 ## 1. 사진이 없는 모델 → 유사 모델 사진으로 임시 대체
 
-카드에 "사진 없음" 빈 칸이 남지 않도록 비슷한 모델의 사진을 대신 보여준다. 카드에는 `유사` 배지(`.tk.sub`)와 alt/모달 부제에 대체 사실을 표기한다. `tools/config.py`의 `SUBSTITUTE` 표가 원천이며 빌드 리포트 `SUBSTITUTE_PHOTOS` 항목으로 감사할 수 있다.
+카드에 "사진 없음" 빈 칸이 남지 않도록 비슷한 모델의 사진을 대신 보여준다. 페이지에는 표시하지 않는다(사용자 결정 2026-10-23). `tools/config.py`의 `SUBSTITUTE` 표가 원천이고, 템플릿의 해당 카드 앞에 Jinja 주석(`{# 160-3003 … #}`)으로 위치를 남겨 두었다. 빌드 리포트 `SUBSTITUTE_PHOTOS` 항목으로 감사할 수 있다.
 
 | 품번 | 품명 | 대체 사진 | 비고 |
 |---|---|---|---|
 | 160-3003 | Mid Plate Straight 2 Hole large | 160-3002 (2 Hole medium) | 2013판 160-2001/2002 → 2026판 3001/3002/3003. large 실촬영 필요 |
 | 160-4050 | Mid Plate Square small | 160-4051 (Square) | small 실촬영 필요 |
 
-실제 사진이 생기면: `final_product_img\Osteo-Mid Plates\<품번>.png`에 넣고 `SUBSTITUTE`에서 해당 줄을 지운 뒤 `tools/build_assets.py` 실행. 템플릿의 `subst` 클래스·`유사` 배지·data-sub 문구는 `tools/make_template.py`의 `CONTENT_FIXES`와 `catalog.html`에서 함께 제거한다.
+실제 사진이 생기면: `final_product_img\Osteo-Mid Plates\<품번>.png`에 넣고 `SUBSTITUTE`에서 해당 줄을 지운 뒤 `tools/build_assets.py` 실행. 템플릿의 Jinja 주석은 `catalog.html`과 `tools/make_template.py`의 `CONTENT_FIXES`에서 함께 지운다.
 
 ## 2. 구 HTML에서 추출한 사진만 있는 품번 (legacy, 장변 ≤800px)
 

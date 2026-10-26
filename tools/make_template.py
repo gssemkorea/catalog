@@ -33,21 +33,21 @@ def rsub(s: str, pat: str, new, n: int, flags=0) -> str:
 
 # (old, new) pairs applied to the body after the transform.
 # - 222-3016 (1.6mm Pilot Drill short): photo added to company_db on 2026-10-23.
-# - 160-3003 / 160-4050: no photo yet, a similar model's photo is shown with a 유사 badge
-#   (config.SUBSTITUTE, docs/DEV_NOTES.md).
+# - 160-3003 / 160-4050: no photo yet; config.SUBSTITUTE maps them to a similar model's photo.
+#   Nothing is shown on the page; a Jinja comment next to each card points to the mapping.
 CONTENT_FIXES = [
     ('<div class="card item" data-d="1.6mm pilot drill short" data-p="222-3016" data-img="" data-title="222-3016" data-sub="1.6mm Pilot Drill short"><div class="pic"><div class="noimg">사진 없음</div></div>',
      '<div class="card item" data-d="1.6mm pilot drill short" data-p="222-3016" data-img="222-3016" data-title="222-3016" data-sub="1.6mm Pilot Drill short"><button type="button" class="pic" aria-label="222-3016 확대">{{ pic(\'222-3016\', \'\', \'222-3016 1.6mm Pilot Drill short\') }}</button>'),
     ('<div class="card shape" data-img="" data-title="222-3016" data-sub="1.6mm Pilot Drill short"><div class="pic"><div class="noimg">사진 없음</div></div>',
      '<div class="card shape" data-img="222-3016" data-title="222-3016" data-sub="1.6mm Pilot Drill short"><button type="button" class="pic" aria-label="222-3016 확대">{{ pic(\'222-3016\', \'\', \'222-3016 1.6mm Pilot Drill short\') }}</button>'),
     ('<div class="card item" data-d="mid plate straight 2 hole large" data-p="160-3003" data-img="" data-title="160-3003" data-sub="Mid Plate Straight 2 Hole large"><div class="pic"><div class="noimg">사진 없음</div></div>',
-     '<div class="card item subst" data-d="mid plate straight 2 hole large" data-p="160-3003" data-img="160-3003" data-title="160-3003" data-sub="Mid Plate Straight 2 Hole large · 유사 모델(160-3002) 사진"><button type="button" class="pic" aria-label="160-3003 확대">{{ pic(\'160-3003\', \'\', \'160-3003 Mid Plate Straight 2 Hole large (유사 모델 160-3002 사진)\') }}<span class="tk sub">유사</span></button>'),
+     '{# 160-3003 Mid Plate Straight 2 Hole large: 실촬영 사진 없음. tools/config.py SUBSTITUTE 에 따라 160-3002 사진을 표시한다. 실사진이 생기면 final_product_img 에 넣고 SUBSTITUTE 에서 160-3003 를 지운 뒤 build_assets.py 실행. #}<div class="card item" data-d="mid plate straight 2 hole large" data-p="160-3003" data-img="160-3003" data-title="160-3003" data-sub="Mid Plate Straight 2 Hole large"><button type="button" class="pic" aria-label="160-3003 확대">{{ pic(\'160-3003\', \'\', \'160-3003 Mid Plate Straight 2 Hole large\') }}</button>'),
     ('<div class="card shape" data-img="" data-title="160-3003" data-sub="Mid Plate Straight 2 Hole large"><div class="pic"><div class="noimg">사진 없음</div></div>',
-     '<div class="card shape subst" data-img="160-3003" data-title="160-3003" data-sub="Mid Plate Straight 2 Hole large · 유사 모델(160-3002) 사진"><button type="button" class="pic" aria-label="160-3003 확대">{{ pic(\'160-3003\', \'\', \'160-3003 Mid Plate Straight 2 Hole large (유사 모델 160-3002 사진)\') }}<span class="tk sub">유사</span></button>'),
+     '{# 160-3003 Mid Plate Straight 2 Hole large: 실촬영 사진 없음. tools/config.py SUBSTITUTE 에 따라 160-3002 사진을 표시한다. 실사진이 생기면 final_product_img 에 넣고 SUBSTITUTE 에서 160-3003 를 지운 뒤 build_assets.py 실행. #}<div class="card shape" data-img="160-3003" data-title="160-3003" data-sub="Mid Plate Straight 2 Hole large"><button type="button" class="pic" aria-label="160-3003 확대">{{ pic(\'160-3003\', \'\', \'160-3003 Mid Plate Straight 2 Hole large\') }}</button>'),
     ('<div class="card item" data-d="mid plate square small" data-p="160-4050" data-img="" data-title="160-4050" data-sub="Mid Plate Square small"><div class="pic"><div class="noimg">사진 없음</div></div>',
-     '<div class="card item subst" data-d="mid plate square small" data-p="160-4050" data-img="160-4050" data-title="160-4050" data-sub="Mid Plate Square small · 유사 모델(160-4051) 사진"><button type="button" class="pic" aria-label="160-4050 확대">{{ pic(\'160-4050\', \'\', \'160-4050 Mid Plate Square small (유사 모델 160-4051 사진)\') }}<span class="tk sub">유사</span></button>'),
+     '{# 160-4050 Mid Plate Square small: 실촬영 사진 없음. tools/config.py SUBSTITUTE 에 따라 160-4051 사진을 표시한다. 실사진이 생기면 final_product_img 에 넣고 SUBSTITUTE 에서 160-4050 를 지운 뒤 build_assets.py 실행. #}<div class="card item" data-d="mid plate square small" data-p="160-4050" data-img="160-4050" data-title="160-4050" data-sub="Mid Plate Square small"><button type="button" class="pic" aria-label="160-4050 확대">{{ pic(\'160-4050\', \'\', \'160-4050 Mid Plate Square small\') }}</button>'),
     ('<div class="card shape" data-img="" data-title="160-4050" data-sub="Mid Plate Square small"><div class="pic"><div class="noimg">사진 없음</div></div>',
-     '<div class="card shape subst" data-img="160-4050" data-title="160-4050" data-sub="Mid Plate Square small · 유사 모델(160-4051) 사진"><button type="button" class="pic" aria-label="160-4050 확대">{{ pic(\'160-4050\', \'\', \'160-4050 Mid Plate Square small (유사 모델 160-4051 사진)\') }}<span class="tk sub">유사</span></button>'),
+     '{# 160-4050 Mid Plate Square small: 실촬영 사진 없음. tools/config.py SUBSTITUTE 에 따라 160-4051 사진을 표시한다. 실사진이 생기면 final_product_img 에 넣고 SUBSTITUTE 에서 160-4050 를 지운 뒤 build_assets.py 실행. #}<div class="card shape" data-img="160-4050" data-title="160-4050" data-sub="Mid Plate Square small"><button type="button" class="pic" aria-label="160-4050 확대">{{ pic(\'160-4050\', \'\', \'160-4050 Mid Plate Square small\') }}</button>'),
 ]
 
 
@@ -248,7 +248,6 @@ footer .logo,.paper .logo{filter:invert(calc(1 - var(--logo-invert)))}
 .tbtn[aria-pressed=true]{background:var(--fg);color:var(--bg)}
 .tbtn::before{content:"\\25D0";font-size:13px;line-height:1;vertical-align:-1px}
 .tbtn span{margin-left:6px}
-.tk.sub{background:transparent;color:var(--fg-3);border:1px dashed var(--fg-3);letter-spacing:.02em;padding:1px 5px}
 .pic,.zoom{font:inherit;color:inherit;appearance:none;-webkit-appearance:none;text-align:inherit}
 .pic:focus-visible,.zoom:focus-visible{outline:1px solid var(--fg);outline-offset:3px}
 .modal img{height:auto}

@@ -25,39 +25,39 @@
    "xlw": 3840
   },
   "band_maxi": {
-   "h": 1311,
-   "lg": "img/banners/band_maxi-lg.751cb4ca.webp",
+   "h": 2247,
+   "lg": "img/banners/band_maxi-lg.471c5e86.webp",
    "lgw": 2000,
    "license": "unverified",
-   "md": "img/banners/band_maxi-md.7050824d.webp",
+   "md": "img/banners/band_maxi-md.558c17cd.webp",
    "mdw": 1000,
-   "src": "image_assets/add_images/colorectal-surgery-division.jpg",
-   "w": 3500,
-   "xl": "img/banners/band_maxi-xl.0c2d9857.webp",
-   "xlw": 3500
+   "src": "image_assets/add_images/surgical-robot-royalty-free-image-1567788183.jpg",
+   "w": 6000,
+   "xl": "img/banners/band_maxi-xl.05e5aba5.webp",
+   "xlw": 3840
   },
   "band_micro": {
    "h": 2625,
-   "lg": "img/banners/band_micro-lg.10946344.webp",
+   "lg": "img/banners/band_micro-lg.3d82654e.webp",
    "lgw": 2000,
    "license": "unverified",
-   "md": "img/banners/band_micro-md.d46a7539.webp",
+   "md": "img/banners/band_micro-md.6f12b05f.webp",
    "mdw": 1000,
    "src": "image_assets/add_images/68073122a884f2c25990f155_EOF04092.webp",
    "w": 7008,
-   "xl": "img/banners/band_micro-xl.78ada6c0.webp",
+   "xl": "img/banners/band_micro-xl.626324e0.webp",
    "xlw": 3840
   },
   "band_mid": {
    "h": 2247,
-   "lg": "img/banners/band_mid-lg.b738b2e8.webp",
+   "lg": "img/banners/band_mid-lg.cef90972.webp",
    "lgw": 2000,
    "license": "unverified",
-   "md": "img/banners/band_mid-md.db58251b.webp",
+   "md": "img/banners/band_mid-md.dd0c840e.webp",
    "mdw": 1000,
    "src": "image_assets/add_images/surgical-robot-royalty-free-image-1567788183.jpg",
    "w": 6000,
-   "xl": "img/banners/band_mid-xl.9f3145ac.webp",
+   "xl": "img/banners/band_mid-xl.b75c26fe.webp",
    "xlw": 3840
   },
   "band_mini": {
@@ -85,7 +85,7 @@
    "xlw": 3840
   }
  },
- "built": "2026-10-23T17:15:44",
+ "built": "2026-10-23T17:56:27",
  "counts": {
   "banners": 7,
   "images": 6,

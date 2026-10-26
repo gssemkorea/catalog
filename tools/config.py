@@ -47,7 +47,8 @@ WEBP_METHOD = 6
 MIRROR = {"160-0000": "160-1000"}
 
 # Models with no photo yet: show a similar model's photo instead (see docs/DEV_NOTES.md).
-# The manifest records substitute_of so the card can be labelled and the list audited.
+# Not marked on the page. Change the right-hand key to pick another model; delete the entry
+# once a real photo is placed in final_product_img. Audit: build_report.txt SUBSTITUTE_PHOTOS.
 SUBSTITUTE = {"160-3003": "160-3002", "160-4050": "160-4051"}
 
 # Legacy product keys that are the same image as a spread figure (dedupe).
