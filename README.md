@@ -29,6 +29,20 @@ python tools/release.py [--public]      # build → pytest → freeze → inline
 
 `tools/extract_legacy.py`와 `tools/make_template.py`는 구 HTML에서 1회 변환할 때만 필요하다. 마크업을 바꾸려면 `catalog/templates/catalog.html`을 직접 편집한다.
 
+## 배포 (GitHub Pages, catalog.gssem.kr)
+
+저장소: https://github.com/gssemkorea/catalog — `main`에 push하면 `.github/workflows/pages.yml`이
+`tools/freeze.py` + `tools/inline.py`로 `dist/`를 만들고 GitHub Pages에 배포한다
+(company_db 불필요: `catalog/static/img`가 커밋되어 있음). 단일 파일은
+https://catalog.gssem.kr/Osteo-Fit_CMF_Catalog.html 로 받을 수 있다.
+
+1회 설정: Settings → Pages → Build and deployment → Source = **GitHub Actions**,
+Custom domain = `catalog.gssem.kr` (Enforce HTTPS 체크).
+DNS: `catalog.gssem.kr` → CNAME `gssemkorea.github.io`.
+
+새 제품 사진 반영 순서: company_db에 PNG 추가 → `python tools/build_assets.py` →
+`pytest` → commit(`catalog/static/img` 포함) → push.
+
 ## 이미지 키 해석 순서
 
 1. `assets_src/overrides.json` (명시 매핑)

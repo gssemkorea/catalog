@@ -1,0 +1,57 @@
+# Builds the static catalog from the committed sources (catalog/static/img is tracked,
+# so company_db is not needed) and deploys dist/ to GitHub Pages at catalog.gssem.kr.
+# Repository settings -> Pages -> Source must be "GitHub Actions".
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  PYTHONUTF8: "1"
+  CUSTOM_DOMAIN: catalog.gssem.kr
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Freeze site and single-file export
+        run: |
+          python tools/freeze.py --out dist
+          python tools/inline.py dist/index.html --out dist/Osteo-Fit_CMF_Catalog.html
+          echo "$CUSTOM_DOMAIN" > dist/CNAME
+          touch dist/.nojekyll
+      - name: Tests (manifest, images, app, export)
+        run: python -m pytest -q
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
