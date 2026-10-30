@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>3D 샘플 · Osteo-Fit CMF Catalog</title>
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" media="(prefers-color-scheme:dark)" content="#0a0a0a">
+<meta name="theme-color" media="(prefers-color-scheme:light)" content="#fafaf8">
+<script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem('osteofit.theme')}catch(e){}
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';
+d.dataset.theme=t})()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
+<script type="module" src="https://unpkg.com/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+<style>
+/* page-local layout; colours come from catalog.css tokens so dark/light follow the catalogue */
+.s3d{padding-block:28px 72px}
+.s3d .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(280px,4fr);gap:32px;align-items:start}
+.s3d h1{font-family:var(--display);font-weight:700;font-size:clamp(22px,3vw,34px);letter-spacing:-.01em;line-height:1.1;margin:0 0 6px}
+.s3d .kick{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-3);margin:0 0 18px}
+.stage{position:relative;background:var(--panel);border:1px solid var(--line);aspect-ratio:4/3;min-height:360px;overflow:hidden}
+model-viewer{width:100%;height:100%;background:transparent;--poster-color:transparent;--progress-bar-color:var(--fg);--progress-bar-height:2px}
+model-viewer::part(default-ar-button){bottom:14px;right:14px}
+.stage .tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3);pointer-events:none}
+.stage .tag b{color:var(--fg);font-weight:500;border:1px solid var(--fg);padding:1px 6px;margin-right:8px}
+.stage .hint{position:absolute;bottom:12px;left:12px;font-size:11px;color:var(--fg-3);pointer-events:none;transition:opacity .4s}
+.stage.touched .hint{opacity:0}
+.panel{font-size:13px;line-height:1.6}
+.panel .spec{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-family:var(--mono);font-size:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:0 0 20px}
+.panel .spec dt{color:var(--fg-3);letter-spacing:.06em;text-transform:uppercase;font-size:10px;padding-top:2px}
+.panel .spec dd{margin:0;color:var(--fg)}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.ctl .tbtn{order:0;padding:6px 12px}
+.ctl .tbtn::before{display:none}
+.ctl .tbtn span{margin:0;display:inline}
+.slider{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);margin:0 0 20px}
+.slider input{flex:1;accent-color:var(--fg)}
+.note{color:var(--fg-2);font-size:12px;border-left:2px solid var(--line);padding-left:12px;margin:0 0 10px}
+.note b{color:var(--fg);font-weight:500}
+.top .back{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);text-decoration:none}
+.top .back:hover{color:var(--fg)}
+.top .tbtn{order:0;margin-left:12px}
+@media (max-width:860px){.s3d .wrap{grid-template-columns:1fr}.stage{aspect-ratio:1/1;min-height:300px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <a class="brand" href="./" aria-label="GSSEM Solution · Osteo-Fit"><img class="logo" src="{{ asset(manifest().images.logo.p) }}" width="{{ manifest().images.logo.w }}" height="{{ manifest().images.logo.h }}" alt="GSSEM Solution"><span>Osteo-Fit</span></a>
+  <a class="back" href="./">← Catalog</a>
+  <button type="button" class="tbtn" id="t-dark" aria-pressed="true" aria-label="다크 모드"><span>Dark</span></button>
+</div></div>
+
+<main class="s3d"><div class="wrap">
+  <section>
+    <p class="kick">3D Sample · Interactive preview</p>
+    <h1>Star Mounting Plate</h1>
+    <div class="stage" id="stage">
+      <model-viewer id="mv"
+        src="{{ asset('models/sample_star_plate.glb') }}"
+        alt="Star Mounting Plate 3D 모델"
+        camera-controls touch-action="pan-y" auto-rotate auto-rotate-delay="1500" rotation-per-second="20deg"
+        camera-orbit="35deg 65deg auto" field-of-view="28deg" interaction-prompt="none"
+        environment-image="neutral" exposure="1" shadow-intensity="0.7" shadow-softness="0.8"
+        ar ar-modes="webxr scene-viewer" loading="eager">
+      </model-viewer>
+      <div class="tag"><b>3D</b>Draco · 2.1 MB</div>
+      <div class="hint" id="hint">드래그: 회전 · 휠/핀치: 확대 · 우클릭/두 손가락: 이동</div>
+    </div>
+  </section>
+
+  <aside class="panel">
+    <dl class="spec">
+      <dt>Model</dt><dd>Star Mounting Plate (샘플)</dd>
+      <dt>Source</dt><dd>star mounting plate 3d model.glb · 69.9 MB · 1,978,176 tri</dd>
+      <dt>Web build</dt><dd>sample_star_plate.glb · 2.06 MB · 374,626 tri · WebP 2048px · Draco</dd>
+      <dt>Viewer</dt><dd>&lt;model-viewer&gt; 4.0 (three.js)</dd>
+    </dl>
+
+    <div class="ctl" role="group" aria-label="보기 제어">
+      <button type="button" class="tbtn" id="b-rot" aria-pressed="true"><span>Auto rotate</span></button>
+      <button type="button" class="tbtn" id="b-reset"><span>Reset view</span></button>
+      <button type="button" class="tbtn" id="b-front"><span>Front</span></button>
+      <button type="button" class="tbtn" id="b-side"><span>Side</span></button>
+      <button type="button" class="tbtn" id="b-back"><span>Back</span></button>
+    </div>
+    <label class="slider">Light <input id="exp" type="range" min="0.4" max="2" step="0.05" value="1" aria-label="조명 밝기"></label>
+
+    <p class="note"><b>형상 참고용.</b> 이 모델은 AI 생성(Tripo) 파일이라 실제 치수·구멍 위치와 다를 수 있습니다. 치수는 카탈로그 치수도를 기준으로 합니다.</p>
+    <p class="note">모바일(Android Chrome)에서는 뷰어 우측 하단에 AR 버튼이 나타납니다. iOS는 USDZ 변환 후 지원됩니다.</p>
+    <p class="note" id="stat">모델 불러오는 중…</p>
+  </aside>
+</div></main>
+
+<script>
+(function(){
+  var root=document.documentElement, TK='osteofit.theme', tb=document.getElementById('t-dark'),
+      mq=window.matchMedia?matchMedia('(prefers-color-scheme:light)'):null;
+  function stored(){try{return localStorage.getItem(TK)}catch(e){return null}}
+  function applyTheme(t,save){
+    root.dataset.theme=t;
+    tb.setAttribute('aria-pressed',t==='dark');tb.setAttribute('aria-label',t==='dark'?'다크 모드 (켜짐)':'다크 모드 (꺼짐)');
+    if(save){try{localStorage.setItem(TK,t)}catch(e){}}
+  }
+  applyTheme(root.dataset.theme==='light'?'light':'dark',false);
+  tb.onclick=function(){applyTheme(root.dataset.theme==='dark'?'light':'dark',true)};
+  if(mq&&mq.addEventListener)mq.addEventListener('change',function(){if(!stored())applyTheme(mq.matches?'light':'dark',false)});
+
+  var mv=document.getElementById('mv'), stage=document.getElementById('stage'), stat=document.getElementById('stat'),
+      rot=document.getElementById('b-rot'), t0=performance.now();
+  function orbit(o){mv.cameraOrbit=o;mv.cameraTarget='auto auto auto';mv.fieldOfView='28deg';mv.jumpCameraToGoal()}
+  rot.onclick=function(){var on=rot.getAttribute('aria-pressed')!=='true';rot.setAttribute('aria-pressed',on);if(on)mv.setAttribute('auto-rotate','');else mv.removeAttribute('auto-rotate')};
+  document.getElementById('b-reset').onclick=function(){orbit('35deg 65deg auto')};
+  document.getElementById('b-front').onclick=function(){orbit('0deg 90deg auto')};
+  document.getElementById('b-side').onclick=function(){orbit('90deg 90deg auto')};
+  document.getElementById('b-back').onclick=function(){orbit('180deg 90deg auto')};
+  document.getElementById('exp').oninput=function(){mv.exposure=this.value};
+  mv.addEventListener('load',function(){stat.textContent='모델 로드 완료 · '+Math.round(performance.now()-t0)+' ms'});
+  mv.addEventListener('error',function(e){stat.textContent='모델을 불러오지 못했습니다: '+(e.detail&&e.detail.type||'')});
+  ['pointerdown','wheel','touchstart'].forEach(function(ev){mv.addEventListener(ev,function(){stage.classList.add('touched')},{passive:true})});
+})();
+</script>
+</body>
+</html>

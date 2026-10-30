@@ -27,6 +27,12 @@ def index():
     return render_template("catalog.html", cat=cat_payload())
 
 
+@bp.get("/3d")
+def sample3d():
+    """Sample page for the interactive 3D viewer (model-viewer + Draco GLB)."""
+    return render_template("sample3d.html")
+
+
 @bp.get("/img/<key>")
 def img(key: str):
     e = manifest().get("products", {}).get(key)

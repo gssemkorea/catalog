@@ -17,21 +17,26 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from tools import config  # noqa: E402
 from catalog import create_app  # noqa: E402
 
+# route -> file under <out>; every page sits at the root so relative static/ paths work.
+# GitHub Pages serves /3d from 3d.html.
+PAGES = {"/": "index.html", "/3d": "3d.html"}
+
 STATIC_REF = re.compile(r"""(?<![\w/])static/([A-Za-z0-9_./@-]+?)(?:\?v=[0-9a-f]+)?(?=["')\s,])""")
 
 
 def freeze(out: Path) -> tuple[Path, int]:
     app = create_app({"ASSET_BASE": "static", "TESTING": True})
-    with app.test_client() as c:
-        r = c.get("/")
-        assert r.status_code == 200, r.status
-        html = r.get_data(as_text=True)
-    html = re.sub(r"(static/[^\"'\s)]+?)\?v=[0-9a-f]+", r"\1", html)
-
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(html, encoding="utf-8", newline="\n")
+    refs: set[str] = set()
+    with app.test_client() as c:
+        for route, name in PAGES.items():
+            r = c.get(route)
+            assert r.status_code == 200, (route, r.status)
+            html = r.get_data(as_text=True)
+            html = re.sub(r"(static/[^\"'\s)]+?)\?v=[0-9a-f]+", r"\1", html)
+            (out / name).write_text(html, encoding="utf-8", newline="\n")
+            refs |= set(STATIC_REF.findall(html))
 
-    refs = set(STATIC_REF.findall(html))
     man = app.extensions["manifest"]
     for e in man.get("products", {}).values():
         for v in ("t", "m", "f"):

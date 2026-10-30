@@ -5,3 +5,7 @@ __pycache__/
 dist/
 catalog/static/img/.build_cache.json
 company_db/
+
+# 3D source files stay out of the repo (originals live in company_db); only the
+# lightweight Draco builds under catalog/static/models are committed.
+/*.glb

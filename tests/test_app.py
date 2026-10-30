@@ -43,3 +43,12 @@ def test_static_manifest_and_health(client, manifest):
     assert client.get("/static/img/manifest.json").status_code == 200
     j = client.get("/healthz").get_json()
     assert j["ok"] and j["products"] == len(manifest["products"])
+
+
+def test_sample3d_page(client):
+    r = client.get("/3d")
+    assert r.status_code == 200
+    html = r.get_data(as_text=True)
+    assert "<model-viewer" in html and "/static/models/sample_star_plate.glb" in html
+    assert 'id="t-dark"' in html and "{{" not in html
+    assert client.get("/static/models/sample_star_plate.glb").status_code == 200

@@ -43,6 +43,14 @@ DNS: `catalog.gssem.kr` → CNAME `gssemkorea.github.io`.
 새 제품 사진 반영 순서: company_db에 PNG 추가 → `python tools/build_assets.py` →
 `pytest` → commit(`catalog/static/img` 포함) → push.
 
+## 3D 샘플 페이지 (`/3d`)
+
+`catalog/templates/sample3d.html` — `<model-viewer>`로 Draco GLB를 마우스/터치 360° 회전해 보는 검토용 페이지.
+모델은 `catalog/static/models/sample_star_plate.glb`(원본 69.9 MB → 2.06 MB, AI 생성 모델이라 형상 참고용).
+경량화: `npx @gltf-transform/cli simplify in.glb simp.glb --ratio 0.05 --error 0.005` →
+`npx @gltf-transform/cli optimize simp.glb out.glb --compress draco --texture-compress webp --texture-size 2048 --simplify false`.
+배포본은 `dist/3d.html`(https://catalog.gssem.kr/3d). 원본 `.glb`는 저장소 루트에서 제외(`/*.glb`).
+
 ## 이미지 키 해석 순서
 
 1. `assets_src/overrides.json` (명시 매핑)
